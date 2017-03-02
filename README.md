@@ -7,8 +7,7 @@ We are going to be working with Twitch's api version 5, and using it to search f
 
 ## Getting started
 
-The first thing we need to do is to get ourselves an API key.  You do this by signing in or registering an account with twitch, then going to the connections tab in account settings 
-![Image](settings-connection/png).
+The first thing we need to do is to get ourselves an API key.  You do this by signing in or registering an account with twitch, then going to the connections tab in account settings. ![Image](settings-connection.png)
 
 At the bottom of the connections tab, you will find a button to register your application
 ![Image](register.png)
