@@ -1,10 +1,20 @@
 ## Introduction
 
-We are going to be working with Twitch's api version 5, and using it to search for channels.
+We are going to be working with Twitch's api version 5, and using it to search for channels.  API stands for Application Programming Interface, and API's are used to allow programs to interface with the service an API is made for.  In twitch's case, we can use their API to search their database for users, channels, or other information.
+
+### What that info looks like
+![Image](response.png)
 
 ## Getting started
 
-The first thing we need to do is to get ourselves an API key.  
+The first thing we need to do is to get ourselves an API key.  You do this by signing in or registering an account with twitch, then going to the connections tab in account settings 
+![Image](settings-connection/png).
+
+At the bottom of the connections tab, you will find a button to register your application
+![Image](register.png)
+
+O
+
 ```markdown
 Syntax highlighted code block
 
