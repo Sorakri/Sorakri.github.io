@@ -1,13 +1,10 @@
-## Welcome to GitHub Pages
+## Introduction
 
-You can use the [editor on GitHub](https://github.com/Sorakri/Sorakri.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+We are going to be working with Twitch's api version 5, and using it to search for channels.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Getting started
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+The first thing we need to do is to get ourselves an API key.  
 ```markdown
 Syntax highlighted code block
 
