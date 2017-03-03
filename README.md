@@ -98,7 +98,7 @@ Since we asked Twitch to search all of its channels, we got a lot of results, sh
 
 ## We have the information.  Now what?
 
-The information we got was the names of 68 channels that had "cohhcarnage" in them.  The one we are interested in is the first one, who's name is only "cohhcarnage." The important thing is the ID, as the API request for a channels videos' requires the channel ID, not the channel name.  So now we will use our code again, changing the querry to search for videos using the ID of cohhcarnage's channel (different then Twitch API v3, which uses just the channel name).
+The information we got was the names of 68 channels that had "cohhcarnage" in them.  The one we are interested in is the first one, who's name is only "cohhcarnage." The important thing is the ID, as the API request for a channels videos' requires the channel ID, not the channel name.  So now we will use our code again, changing the querry to "https://api.twitch.tv/kraken/channels/26610234/videos" the /videos lets Twitch know we want a list of the channels past broadcasts.  Using just "https://api.twitch.tv/kraken/channels/26610234" would only give us the channel information.  For some reason, adding the /videos is not in the API documentation (at least not that I could find).
 
 ```markdown
 var req = new XMLHttpRequest();
