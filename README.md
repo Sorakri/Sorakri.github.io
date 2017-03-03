@@ -63,7 +63,7 @@ req.addEventListener('load', function(){
 ```
 We now have a program that will send a request to Twitch and recieve a response, what does that response look like?  Once parsed, it looks like this: 
 
-````markdown
+```markdown
 {
   "mature": false,
   "status": "Horizon: Zero Dawn! - Roen & Laina not home quite yet! - Powered by Sony! - @CohhCarnage - !Achievements - !4Year",
@@ -84,6 +84,27 @@ We now have a program that will send a request to Twitch and recieve a response,
   "views": 53216306,
   "followers": 737882
 }
-````
+```
 
-Since we only asked Twitch about one channel, we only got one object with information about a channel.  Other requests to Twitch may contain many more channels and their information in the response.
+Since we only asked Twitch about one channel, we only got one object with information about a channel.  Other request types(Found at the Twitch [API dev page](https://dev.twitch.tv/docs) may contain more than one channels information, or other information(such as user information) in the response.
+
+## We have the information.  Now what?
+
+<script src= "http://player.twitch.tv/js/embed/v1.js"></script>
+<div id="SamplePlayerDivID2">
+<script type="text/javascript">
+	var options = {
+		width: 854,
+		height: 480,
+		channel: "cohhcarnage",
+	};
+	var player = new Twitch.Player("SamplePlayerDivID2", options);
+	player.setVolume(0.5);
+</script>
+<iframe frameborder="0" 
+        scrolling="no" 
+        id="chat_embed" 
+        src="http://www.twitch.tv/cohhcarnage/chat" 
+        height="480" 
+        width="350">
+</iframe>
