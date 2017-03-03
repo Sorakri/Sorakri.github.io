@@ -13,6 +13,7 @@ At the bottom of the connections tab, you will find a button to register your ap
 ![Image](register.png)
 
 This will bring up a page for you to register your application at.  It provides twitch with some information on the intent of your application, and is simple to fill out.  Once you have registered, their should be a field with an client-id in it.
+
 ![Image](cliend-id.png)
 
 This id is what will identify your requests to twitch's services, letting it know your are authorized to ask and recieve information.  
