@@ -12,7 +12,8 @@ The first thing we need to do is to get ourselves an API key.  You do this by si
 At the bottom of the connections tab, you will find a button to register your application
 ![Image](register.png)
 
-This will bring up a page for you to register your application at.  It provides twitch with some information on the intent of your application, and is simple to fill out.  Once you have registered, their should be a field with an client-id in it. ![Image](cliend-id.png)
+This will bring up a page for you to register your application at.  It provides twitch with some information on the intent of your application, and is simple to fill out.  Once you have registered, their should be a field with an client-id in it.
+![Image](cliend-id.png)
 
 This id is what will identify your requests to twitch's services, letting it know your are authorized to ask and recieve information.  
 
@@ -59,7 +60,7 @@ req.addEventListener('load', function(){
    });
 
 ```
-We now have a program that will send a request to Twitch and recieve a response, what does that response look like?  Once parsed, it looks like: 
+We now have a program that will send a request to Twitch and recieve a response, what does that response look like?  Once parsed, it looks like this: 
 
 ````markdown
 {
@@ -83,3 +84,5 @@ We now have a program that will send a request to Twitch and recieve a response,
   "followers": 737882
 }
 ````
+
+Since we only asked Twitch about one channel, we only got one object with information about a channel.  Other requests to Twitch may contain many more channels and their information in the response.
