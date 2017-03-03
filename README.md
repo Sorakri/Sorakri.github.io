@@ -38,26 +38,27 @@ Now for the header information to be included.  This is two thing:
 ```markdown
 var req = new XMLHttpRequest();
 req.open("get", "https://api.twitch.tv/kraken/channels/26610234", true);
-req.setRequestHeader(client-id, "iq3waqvzmhdf9xp01zj94ewrwjyqaa");
-req.setRequestHeader(Accept, "application/vnd.twitchtv.v5+json");
+req.setRequestHeader("client-id", "iq3waqvzmhdf9xp01zj94ewrwjyqaa");
+req.setRequestHeader("Accept", "application/vnd.twitchtv.v5+json");
 ```
-Next we want to set up our function to receive the response from Twitch.  Twitch sends its responses as a JSON object, so we will want to parse it.  So that the rest of our program doesn't need to wait for a response to work, we had our request be ?synchronous; this means we need an event listener to check when we get a response, and then parse the response. It will also be helpful to add in a check for if the response takes to long to come, so we will add a check to the requests status that will log an error to the console if the response takes to much time.
+Next we want to set up our function to receive the response from Twitch.  Twitch sends its responses as a JSON object, so we will want to parse it.  So that the rest of our program doesn't need to wait for a response to work, we had our request be ?synchronous; this means we need an event listener to check when we get a response, and then parse the response. It will also be helpful to add in a check for if the response takes to long to come, so we will add a check to the requests status that will log an error to the console if the response takes to much time.  Finally, we need to send the request at the end of everything.
 
 
 ```markdown
 var req = new XMLHttpRequest();
 req.open("get", "https://api.twitch.tv/kraken/channels/26610234", true);
-req.setRequestHeader(client-id, "iq3waqvzmhdf9xp01zj94ewrwjyqaa");
-req.setRequestHeader(Accept, "application/vnd.twitchtv.v5+json");
+req.setRequestHeader("client-id", "iq3waqvzmhdf9xp01zj94ewrwjyqaa");
+req.setRequestHeader("Accept", "application/vnd.twitchtv.v5+json");
 req.addEventListener('load', function(){
-		if(req.status >= 200 && req.status < 4000){
-		}
-		else {
-			console.log("Error in req: " + req.statusText);
-		}
-		var response = JSON.parse(req.responseText);
-		console.log(req.response);
-   });
+	if(req.status >= 200 && req.status < 4000){
+	}
+	else {
+		console.log("Error in req: " + req.statusText);
+	}
+	var response = JSON.parse(req.responseText);
+	console.log(req.response);
+ });
+ req.send(null);
 
 ```
 We now have a program that will send a request to Twitch and recieve a response, what does that response look like?  Once parsed, it looks like this: 
