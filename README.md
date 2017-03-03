@@ -98,7 +98,7 @@ Since we asked Twitch to search all of its channels, we got a lot of results, sh
 
 ## We have the information.  Now what?
 
-The information we got was the names of 68 channels that had "cohhcarnage" in them.  The one we are interested in is the first one, who's name is only "cohhcarnage." The important thing is the ID, as the API request for a channels videos' requires the channel ID, not the channel name.  So now we will use our code again, changing the querry to search for videos of the channel with an ID of 26610234(the ID of cohhcarnage's channel).
+The information we got was the names of 68 channels that had "cohhcarnage" in them.  The one we are interested in is the first one, who's name is only "cohhcarnage." The important thing is the ID, as the API request for a channels videos' requires the channel ID, not the channel name.  So now we will use our code again, changing the querry to search for videos using the ID of cohhcarnage's channel(different then Twitch API v3, which uses just the channel name).
 
 ```markdown
 var req = new XMLHttpRequest();
@@ -249,7 +249,7 @@ We get back some different information this time.  Like before, it shows the tot
     9 more of these video objects, and 3144 that weren't sent.  That's a lot of videos for one channel
     }
 ```
-We are not interested in most of the data, just the video ID, found near the top, and the resolutions, found near the bottom.  We want to embed this, so lets look back at the [Twitch API](https://dev.twitch.tv/docs/v5/guides/embed-video/) for how to embed a video. Here's the code.  
+We are not interested in most of the data, just the video ID, found near the top, and the resolutions, found near the bottom.  We want to embed this, so lets look back at the [Twitch API](https://dev.twitch.tv/docs/v5/guides/embed-video/) for how to embed a video. One option is using channel name, and the other is with video ID.  Channel name, however, only brings up current broadcasts, and the video we want is a past broadcast, so we use the video ID. Our video ID is "v125855214", not to be confused with the broadcast ID a ways above it. As for height and width, the best options are the same as the resolutions from the video information.  In our case, we will be using 1920x1080, but for other applications, such as one for a phone, it may be better to use smaller resolutions.
 
 
 ```markdown
@@ -257,11 +257,16 @@ We are not interested in most of the data, just the video ID, found near the top
 <div id="SamplePlayerDivID2">
 <script type="text/javascript">
 	var options = {
-		width: <width>,
-		height: <height>,
-		channel: <channel>,
+		width: "1920",
+		height: "1080",
+		video: "v125855214",
 	};
 	var player = new Twitch.Player("SamplePlayerDivID2", options);
 	player.setVolume(0.5);
 </script>
 ```
+
+
+#That's all Folks!
+
+You now have the code to search for a channel, to look through a channels videos, and are able to embed the videos you find.
