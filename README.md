@@ -9,10 +9,10 @@ We are going to be working with Twitch's api version 5, and using it to search f
 
 The first thing we need to do is to get ourselves an API key.  You do this by signing in or registering an account with twitch, then going to the connections tab in account settings. ![Image](settings-connection.png)
 
-At the bottom of the connections tab, you will find a button to register your application
+At the bottom of the connections tab, you will find a button to register your application.
 ![Image](register.png)
 
-This will bring up a page for you to register your application at.  It provides twitch with some information on the intent of your application, and is simple to fill out.  Once you have registered, their should be a field with an client-id in it.
+This will bring up a page for you to register your application at.  It provides twitch with some information on the intent of your application, and is simple to fill out.  Once you have registered, there should be a field with an client-id in it, similar to this one.
 
 ![Image](cliend-id.png)
 
@@ -32,17 +32,17 @@ var req = new XMLHttpRequest();
 req.open("get", "https://api.twitch.tv/kraken/search/channels?query=cohhcarnage", true);
 ```
 Now for the header information to be included.  This is two thing:
-```markdown
-1. Our api Key, to identify the MNLHttpRequest is coming from an authorized source.  Generally api keys should not be shared, but for the purpose of this tutorial 
+
+1. Our api Key, to identify the MNLHttpRequest is coming from an authorized source.  Generally api keys should not be shared, but for the purpose of this tutorial one will be shown.
 2. Since Twitch is in the process of switching from API version 3 to version 5, we want to specify we are using version 5
-```
+
 ```markdown
 var req = new XMLHttpRequest();
 req.open("get", "https://api.twitch.tv/kraken/search/channels?query=cohhcarnage", true);
 req.setRequestHeader("client-id", "iq3waqvzmhdf9xp01zj94ewrwjyqaa");
 req.setRequestHeader("Accept", "application/vnd.twitchtv.v5+json");
 ```
-Next we want to set up our function to receive the response from Twitch.  Twitch sends its responses as a JSON object, so we will want to parse it.  So that the rest of our program doesn't need to wait for a response to work, we had our request be ?synchronous; this means we need an event listener to check when we get a response, and then parse the response. It will also be helpful to add in a check for if the response takes to long to come, so we will add a check to the requests status that will log an error to the console if the response takes to much time.  Finally, we need to send the request at the end of everything.
+Next we want to set up our function to receive the response from Twitch.  Twitch sends its responses as a JSON object, so we will want to parse it.  So that the rest of our program doesn't need to wait for a response to work, we have our request be asynchronous; this means we need an event listener to check when we get a response, and then parse the response. It will also be helpful to know if the  response takes too long to come, so we will add a check to the requests' status that will log an error to the console if the response takes to much time.  Finally, we need to send the request.
 
 
 ```markdown
@@ -94,11 +94,11 @@ We now have a program that will send a request to Twitch and recieve a response,
 }
 ```
 
-Since we asked Twitch to search all of its channels, we got a lot of results, shown by the "_total":68".  By default it gave us the first ten, but can give up to 100 objects in response. Other request types(Found at the Twitch [API dev page](https://dev.twitch.tv/docs)) such as a user request display different information.
+Since we asked Twitch to search all of its channels, we got a lot of results, shown by the "_total":68".  By default it gave us the first ten, but can give up to 100 objects in response. Other request types, found at the Twitch [API dev page](https://dev.twitch.tv/docs), such as a user request display different information.
 
 ## We have the information.  Now what?
 
-The information we got was the names of 68 channels that had "cohhcarnage" in them.  The one we are interested in is the first one, who's name is only "cohhcarnage." The important thing is the ID, as the API request for a channels videos' requires the channel ID, not the channel name.  So now we will use our code again, changing the querry to search for videos using the ID of cohhcarnage's channel(different then Twitch API v3, which uses just the channel name).
+The information we got was the names of 68 channels that had "cohhcarnage" in them.  The one we are interested in is the first one, who's name is only "cohhcarnage." The important thing is the ID, as the API request for a channels videos' requires the channel ID, not the channel name.  So now we will use our code again, changing the querry to search for videos using the ID of cohhcarnage's channel (different then Twitch API v3, which uses just the channel name).
 
 ```markdown
 var req = new XMLHttpRequest();
@@ -264,9 +264,11 @@ We are not interested in most of the data, just the video ID, found near the top
 	var player = new Twitch.Player("SamplePlayerDivID2", options);
 	player.setVolume(0.5);
 </script>
+
+I would actually embed this, but Github's template webpages removes scripts.
 ```
 
 
-#That's all Folks!
+# That's all Folks!
 
-You now have the code to search for a channel, to look through a channels videos, and are able to embed the videos you find.
+You now have the code to search for a channel, to look through a channels videos, and are able to embed the videos you find.  [Here](https://jsfiddle.net/Sorakri/s93tf5s1/) is the JSFiddle for the channel search, and [Here](https://jsfiddle.net/Sorakri/ke62qk14/) is the JSFiddle for the video list from channel 26610234.
