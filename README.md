@@ -7,7 +7,7 @@ We are going to be working with NASA's API to learn how to search for images fro
 
 # Getting an API key
 
-The first thing we need is to get an API key.  This is what identifies your requests to the API service, to let it know you are autorized to communicate with the service.  This is done by going to https://api.nasa.gov/index.html#apply-for-an-api-key and entering your information; the key you get back should look like a string of random numbers and letters.  It is important for security to not share these keys.
+The first thing we need is to get an API key.  This is what identifies your requests to the API service, to let it know you are autorized to communicate with the service.  This is done by going to https://api.nasa.gov/index.html#apply-for-an-api-key and entering your information; the key you get back should look like a string of random numbers and letters.
 
 # Now to make requests
 
@@ -105,7 +105,7 @@ https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&page=1&api
 
 25 photo objects at a time is a lot easier to look through than several thousand, and is a lot easier to load.  While each photo object holds a lot of information, we are only interested in the image itself, which is found in the img_src part of the photo object, and is a url to that image. Lets look at the image from the first result of our search
 ![first image from curiosity](http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00000/opgs/edr/ccam/CR0_397506434EDR_F0010008CCAM00000M_.JPG)
-It isn't very interesting, just a white circle.  So lets see if we can find a better image.  Once again, we go back to "https://api.nasa.gov/api.html#MarsPhotos" and see what we can do.  It looks like searching by camera could help us, and looking at the list of cameras, the Panoramic camera on Opportunity or Spirit sounds interesting.  Lets change our request to look for images from Spirit's Panoramic camera on its 100th day on mars.  To do this, we change our request address to be 
+It isn't very interesting, just a white circle.  So lets see if we can find a better image.  Once again, we go back to https://api.nasa.gov/api.html#MarsPhotos and see what we can do.  It looks like searching by camera could help us, and looking at the list of cameras, the Panoramic camera on Opportunity or Spirit sounds interesting.  Lets change our request to look for images from Spirit's Panoramic camera on its 100th day on mars.  To do this, we change our request address to be 
 ```markdown
 https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=100&camera=pancam&page=1&api_key=3z5eaPz4uM9hTQVUmHUgA0HSYeRrmBWv2SvGBVbE"
 ```
