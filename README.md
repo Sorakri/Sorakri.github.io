@@ -109,7 +109,8 @@ It isn't very interesting, just a white circle.  So lets see if we can find a be
 ```markdown
 https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=100&camera=pancam&page=1&api_key=3z5eaPz4uM9hTQVUmHUgA0HSYeRrmBWv2SvGBVbE"
 ```
-Sending our new request, we get an object holding information on 25 images from spirits panoramic camera.  Lets look at the last image in the object this time
+Sending our new request, we get an object holding information on 25 images from spirits panoramic camera.  Lets look at the last image in the object this time.
+
 ![pancam image from Spirit](https://mars.nasa.gov/mer/gallery/all/2/p/100/2P135241955ESF2702P2111R1M1-BR.JPG).
 This is much more interesting then that white dot from earlier.
 
