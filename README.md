@@ -104,13 +104,13 @@ https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&page=1&api
 ```
 
 25 photo objects at a time is a lot easier to look through than several thousand, and is a lot easier to load.  While each photo object holds a lot of information, we are only interested in the image itself, which is found in the img_src part of the photo object, and is a url to that image. Lets look at the image from the first result of our search
-![image](http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00000/opgs/edr/ccam/CR0_397506434EDR_F0010008CCAM00000M_.JPG)
+![first image from curiosity](http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00000/opgs/edr/ccam/CR0_397506434EDR_F0010008CCAM00000M_.JPG)
 It isn't very interesting, just a white circle.  So lets see if we can find a better image.  Once again, we go back to "https://api.nasa.gov/api.html#MarsPhotos" and see what we can do.  It looks like searching by camera could help us, and looking at the list of cameras, the Panoramic camera on Opportunity or Spirit sounds interesting.  Lets change our request to look for images from Spirit's Panoramic camera on its 100th day on mars.  To do this, we change our request address to be 
 ```markdown
 https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=100&camera=pancam&page=1&api_key=3z5eaPz4uM9hTQVUmHUgA0HSYeRrmBWv2SvGBVbE"
 ```
 Sending our new request, we get an object holding information on 25 images from spirits panoramic camera.  Lets look at the last image in the object this time
-![](https://mars.nasa.gov/mer/gallery/all/2/p/100/2P135241955ESF2702P2111R1M1-BR.JPG).
+![pancam image from Spirit](https://mars.nasa.gov/mer/gallery/all/2/p/100/2P135241955ESF2702P2111R1M1-BR.JPG).
 This is much more interesting then that white dot from earlier.
 
 # Thats all.
