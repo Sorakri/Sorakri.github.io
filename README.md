@@ -16,7 +16,7 @@ With an API key, we can now start making the code that sends requests to the API
 var req = new XMLHttpRequest();
 ```
 
-next, we open the request and tell it what method to use, in our case it is "get", and the address url of the API service we are sending the request to.  "https://api.nasa.gov/mars-photos/api/v1" is the base address of the mars photos api, and we will add "/rovers/curiosity/photos" to tell it we want photos from the rover Curiosity.  Next, we add ?sol=0" to tell NASA that we only want images from the first solar day that Curiosity was on mars.  If we wanted to search something else, we would look at "https://api.nasa.gov/api.html#MarsPhotos" to see more query parameters.  Finally, at the end of the request address, we add "&api_key=YOUR KEY HERE".  Normally, we don't want our webpages to wait for a response to load everything else, so at the end of our request, we set asynchronous to be true.  This means that the second line of our code ends up as:
+next, we open the request and tell it what method to use, in our case it is "get", and the address url of the API service we are sending the request to.  "https://api.nasa.gov/mars-photos/api/v1" is the base address of the mars photos api, and we will add "/rovers/curiosity/photos" to tell it we want photos from the rover Curiosity.  Next, we add ?sol=0" to tell NASA that we only want images from the first solar day that Curiosity was on mars.  If we wanted to search something else, we would look at [https://api.nasa.gov/api.html#MarsPhotos](https://api.nasa.gov/api.html#MarsPhotos) to see more query parameters.  Finally, at the end of the request address, we add "&api_key=YOUR KEY HERE".  Normally, we don't want our webpages to wait for a response to load everything else, so at the end of our request, we set asynchronous to be true.  This means that the second line of our code ends up as:
 ```markdown
 req.open("get", "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&api_key=3z5eaPz4uM9hTQVUmHUgA0HSYeRrmBWv2SvGBVbE", true);
 ```
@@ -98,7 +98,7 @@ Cleaning it up a bit, it looks like
 ```
 
 
-Several thousand of these in a result is quite a lot.  Lets see if we can make it easier to deal with.  Looking at https://api.nasa.gov/api.html#MarsPhotos, we see we can add "&page=1" to only receive 25 results at a time.  Lets do this, and change our address to now looks like:
+Several thousand of these in a result is quite a lot.  Lets see if we can make it easier to deal with.  Looking at [https://api.nasa.gov/api.html#MarsPhotos](https://api.nasa.gov/api.html#MarsPhotos), we see we can add "&page=1" to only receive 25 results at a time.  Lets do this, and change our address to now looks like:
 ```markdown
 https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=0&page=1&api_key=3z5eaPz4uM9hTQVUmHUgA0HSYeRrmBWv2SvGBVbE
 ```
