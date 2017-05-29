@@ -116,7 +116,7 @@ Sending our new request, we get an object holding information on 25 images from 
 This is much more interesting then that white dot from earlier.
 
 # Thats all.
-Well, now you know how to use the Mars Rover API; sending it requests, looking through the results, and using the API's page to learn how to structure the requests.  Our final code was 
+You now know how to use the Mars Photos API.  You can send requests to NASA, and you know how you can change your request by looking at the API guide.  In the end, our final code to for sending and receiving the request is: 
 
 ```markdown
 var req = new XMLHttpRequest();
